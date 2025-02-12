@@ -9,7 +9,7 @@ distro:
 
 v86:
 	docker build -t v86-builder ./v86
-	docker run --rm -v ${PWD}/v86:/dst v86-builder
+	docker run --rm -v "$(PWD)/v86:/dst" v86-builder
 
 serve:
 	python3 -m http.server 8000
@@ -20,6 +20,4 @@ qemu:
 		-initrd output/initramfs.gz \
 		-append "console=tty1" \
 		-netdev user,id=net0 \
-		-device virtio-net-pci,netdev=net0 \
-		-nographic \
-		-no-reboot
+		-device virtio-net-pci,netdev=net0
