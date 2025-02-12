@@ -18,6 +18,5 @@ qemu:
 	qemu-system-i386 \
 		-kernel output/bzImage \
 		-initrd output/initramfs.gz \
-		-append "console=tty1" \
 		-netdev user,id=net0 \
 		-device virtio-net-pci,netdev=net0
